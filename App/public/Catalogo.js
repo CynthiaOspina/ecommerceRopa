@@ -1,3 +1,4 @@
+var globalid=1;
 var firebaseConfig = {
   apiKey: "AIzaSyCy3lw3o0NE1E4GYhqVcnuIxG0NxeqT6B8",
   authDomain: "ing-soft-2.firebaseapp.com",
@@ -54,7 +55,11 @@ var usersReference = db.collection("productos");
     if(rating == 1){
       var x5 ='<i class="far fa-star"></i><i class="far fa-star low-star"></i><i class="far fa-star low-star"></i><i class="far fa-star low-star"></i><i class="far fa-star low-star">';
     }
-    var x6 ='</i></div><h4><a href="single-product.html">';
+    if(globalid>0){
+    var x6 ='</i></div><h4><a href="single-product.html?variable='+globalid+'">';
+    globalid=globalid+1;
+    console.log(globalid+"id");
+    }
     var x7 ='</a></h4><div class="price"><ul><li>S/.';
     var x8 ='.00</li>';
     if(descuento == true){var x9 ='<li class="discount">S/.';x9 = x9.concat(precio+25,'.00</li>');} else {var x9=""};
