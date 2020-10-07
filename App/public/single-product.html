@@ -29,7 +29,9 @@
 
 
 <body>
-
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="Seleccion.js"></script>
     <header>
         <!-- Header Start -->
         <div class="header-area">
@@ -94,24 +96,20 @@
   <div class="product_image_area">
     <div class="container">
       <div class="row justify-content-center">
-
-
             <div class="col-lg-5 col-sm-5">
-              <div class="product_img_slide owl-carousel">
-                <div class="single_product_item">
-                    <img src="assets\img\product\polo1.jpg" alt="" class="img-fluid">
-
-                    <h3> <p>S/40.00</p> </h3>
+              
+                <div class="single_product_item" id="imagenprodc">
+                    
 
                 </div>
-            </div>
+            
           </div>
 
         <div class="col-lg-5 col-sm-5">
           <div class="single_product_text">
-            <h3>Men Kei Nishikori DRY-EX France 2020 Polo Shirt
+            <h3 id="textoproducto">Men Kei Nishikori DRY-EX France 2020 Polo Shirt
                 </h3>
-            <p>
+            <p id="descripcionproducto">
                 Descripcion aqui.
             </p>
             <div class="card_area">
@@ -137,11 +135,11 @@
         								    </select>
         							</div>
                         </div>
-        						</div>
+        			</div>
 
                 </div>
               <div class="add_to_cart">
-                  <a href="#" class="btn_3">Agrega a tu carro</a>
+                  <a href="cart.html" class="btn_3">Agrega a tu carro</a>
               </div>
             </div>
           </div>
@@ -236,7 +234,7 @@
 <!-- JS here -->
         <!-- All JS Custom Plugins Link Here here -->
         <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-
+        
         <!-- Jquery, Popper, Bootstrap -->
         <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
         <script src="./assets/js/popper.min.js"></script>
@@ -280,3 +278,4 @@
 </body>
 
 </html>
+
