@@ -20,11 +20,11 @@ form.addEventListener('submit', handleFormSubmit);
 function handleAuthState(user) {
   if (user) {
     showPrivateInfo()
-    return console.log('Habemus user 🎉');
+    return console.log('');
   }
 
   showLoginForm()
-  return console.log('No habemus user 😭');
+  return console.log('');
 }
 
 function handleFormSubmit(event) {
@@ -65,7 +65,7 @@ function showLoginForm() {
   const hiddenPrivateInfo = document.getElementById('hiddenPrivateInfo');
   hiddenPrivateInfo.style.display = 'none';
   hiddenPrivateInfo.innerHTML = `
-    <p>Nada que mostrar, tenes que logearte, bro...</p>
+    <p>Nada que mostrar</p>
   `;
 }
 
@@ -82,8 +82,8 @@ function createUser({ email, password }) {
       if (error.code === 'auth/email-already-in-use') {
         console.log('Ya existe el usuario');
         const soLogin = confirm(
-          `Ya te habias registrado con este email, bro 😝.
-          ¿Quieres iniciar sesión ✨?`
+          `Ya te habias registrado con este email.
+          ¿Quieres iniciar sesión?`
         );
         return !!soLogin ? loginUser({ email, password }) : alertTryAgain(error);;
       }
