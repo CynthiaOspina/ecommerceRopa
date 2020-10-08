@@ -1,10 +1,10 @@
 const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
+  apiKey: "AIzaSyCy3lw3o0NE1E4GYhqVcnuIxG0NxeqT6B8",
+  authDomain: "https://ing-soft-2.web.app/",
+  databaseURL: "https://ing-soft-2.firebaseio.com/",
+  projectId: "ing-soft-2",
+  storageBucket: "gs://ing-soft-2.appspot.com",
+  messagingSenderId: "892080002396",
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -76,13 +76,13 @@ function createUser({ email, password }) {
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(function (user) {
-      console.log('¡Creamos el user, bro! Huepaje!');
+      console.log('Usuario creado');
     })
     .catch(function (error) {
       if (error.code === 'auth/email-already-in-use') {
         console.log('Ya existe el usuario');
         const soLogin = confirm(
-          `Ya te habias registrado con este email.
+          `Ya te habías registrado con este email.
           ¿Quieres iniciar sesión?`
         );
         return !!soLogin ? loginUser({ email, password }) : alertTryAgain(error);;
@@ -97,7 +97,7 @@ function loginUser({ email, password }) {
 
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function (user) {
-      console.log('Credenciales correctas, brother, bienvenido.');
+      console.log('Credenciales correctas.');
     })
     .catch(function (error) {
       console.log(error);
@@ -113,5 +113,5 @@ function signoutUser() {
 // General Utils
 function alertTryAgain(error) {
   console.log(error);
-  return alert('Error, intenta de nuevo ⛈');
+  return alert('Error, intenta de nuevo');
 }
