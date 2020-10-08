@@ -90,7 +90,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center">
-                            <h2>Login</h2>
+                            <h2>Registrate</h2>
                         </div>
                     </div>
                 </div>
@@ -103,20 +103,17 @@
     <section class="login_part section_padding ">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6">
-                    <div class="login_part_text text-center">
-                        <div class="login_part_text_iner">
-                            <h2>Nuevo en nuestra tienda?</h2>
-                            <a href="crearcuenta.html" class="btn_3">Crea una cuenta</a>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="col-lg-6 col-md-6">
                     <div class="login_part_form">
                         <div class="login_part_form_iner">
                             <h3>Bienvenido ! <br>
-                                Entra a tu cuenta</h3>
+                                Entra tus datos</h3>
                             <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                                <div class="col-md-12 form-group p_star">
+                                  <input type="text" class="form-control" id="nombre" name="nombre" value=""
+                                      placeholder="Nombre">
+                                </div>
                                 <div class="col-md-12 form-group p_star">
                                     <input type="text" class="form-control" id="name" name="name" value=""
                                         placeholder="Correo">
@@ -125,11 +122,19 @@
                                     <input type="password" class="form-control" id="password" name="password" value=""
                                         placeholder="Contraseña">
                                 </div>
+
+                                <div class="col-md-12 form-group p_star">
+                                  <br>
+                                    <input type="radio" id="tipo" name="tipo" value="">
+                                    <label for="comprador">Comprador</label><br>
+                                    <input type="radio" id="tipo" name="tipo" value="">
+                                    <label for="vendedor">Vendedor</label><br>
+                                </div>
                                 <div class="col-md-12 form-group">
                                     <button type="submit" id="but" value="submit" class="btn_3">
-                                        Ingresar
+                                        Crear cuenta
                                     </button>
-                                    <a class="lost_pass" href="#">Olvidaste tu contraseña?</a>
+
                                 </div>
                             </form>
                         </div>
@@ -182,8 +187,8 @@
                  <div class="col-xl-7 col-lg-7 col-md-7">
                      <div class="footer-copy-right">
                          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>                   </div>
+       Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+       <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>                   </div>
                  </div>
                   <div class="col-xl-5 col-lg-5 col-md-5">
                      <div class="footer-copy-right f-right">
@@ -204,13 +209,7 @@
 
     <!-- All JS Custom Plugins Link Here here -->
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-<<<<<<< Updated upstream
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
-    <script src="./assets/js/register.js"></script>
-=======
-    <script src="login.js"></script>
->>>>>>> Stashed changes
+    <script src="crearcuenta.js"></script>
 
     <!-- Jquery, Popper, Bootstrap -->
     <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
