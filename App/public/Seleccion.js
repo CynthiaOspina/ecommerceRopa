@@ -1,6 +1,9 @@
 var paramstr = window.location.search.substr(1);
 var paramarr = paramstr.split ("&");
 var params = {};
+var nombre ="";
+var foto = "";
+var precio ="";
 globaid=1;
 for ( var i = 0; i < paramarr.length; i++) {
 var tmparr = paramarr[i].split("=");
@@ -36,12 +39,12 @@ var firebaseConfig = {
         console.log("buen intento");
     if(globaid==params['variable']){
         console.log("intento correcto");
-    var precio = userDoc.data().Precio;
+    precio = userDoc.data().Precio;
     console.log(precio);
     var descripcion = userDoc.data().Descripcion;
-    var foto = userDoc.data().Foto;
+    foto = userDoc.data().Foto;
     console.log(foto);
-    var nombre = userDoc.data().Nombre;
+    nombre = userDoc.data().Nombre;
     var x = document.getElementById("imagenprodc");
     x.innerHTML = x.innerHTML.concat('<img src="',foto,'"  alt="" class="img-fluid" >',
         '<h3> <p> S/.',precio,'</p> </h3>');
@@ -55,3 +58,22 @@ var firebaseConfig = {
     globaid=globaid+1;
     })
 });
+
+function agregarcarrito(){
+    var cant = "";
+    cant = document.getElementById("cantidadproducto").value;
+    console.log(cant)
+    db.collection("Carritos").doc("producto"+params['variable']).set({
+        name: nombre,
+        photo: foto,
+        price: precio,
+        cantidad: cant,
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
+    window.open("cart.html","ventana1");
+}
