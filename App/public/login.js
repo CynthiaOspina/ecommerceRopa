@@ -1,9 +1,4 @@
-
-
-document.getElementById("but").onclick = function() {myFunction()};
-
-function myFunction() {
-  var firebaseConfig = {
+var firebaseConfig = {
   apiKey: "AIzaSyCy3lw3o0NE1E4GYhqVcnuIxG0NxeqT6B8",
   authDomain: "ing-soft-2.firebaseapp.com",
   databaseURL: "https://ing-soft-2.firebaseio.com",
@@ -12,14 +7,41 @@ function myFunction() {
   messagingSenderId: "892080002396",
   appId: "1:892080002396:web:2fc715e88c1ec250261d99",
   measurementId: "G-EH50HQXHVX"
-  };
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+db = firebase.firestore();
 
-  var db = firebase.firestore();
-  var x = document.getElementById("name");
-  var y = document.getElementById("password");
+function entrar(){
+  //Get them
+  var pass =document.getElementById("password").value;
+  var email =document.getElementById("name").value;
+
+
+
   var usersReference = db.collection("usuarios");
+  usersReference.get().then((querySnapshot) => {
 
-  document.getElementById("but").innerHTML = "YOU CLICKED ME!";
-}
+  //querySnapshot is "iteratable" itself
+  querySnapshot.forEach((userDoc) => {
+
+  //userDoc contains all metadata of Firestore object, such as reference and id
+
+  //If you want to get doc data
+      var x = userDoc.data().Correo;
+      var y = userDoc.data().Contraseña;
+      if(email == x){
+        if(y==pass){
+          insession= true;
+          alert("Bienvenido");
+          document.getElementById("password").value ="";
+          document.getElementById("name").value ="";
+          location.href = "index.html";
+        }
+      }})});
+
+
+
+
+};

@@ -116,22 +116,24 @@
                         <div class="login_part_form_iner">
                             <h3>Bienvenido ! <br>
                                 Entra a tu cuenta</h3>
-                            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-                                <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="name" name="name" value=""
-                                        placeholder="Correo">
-                                </div>
-                                <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" id="password" name="password" value=""
-                                        placeholder="Contraseña">
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <button type="submit" id="but" value="submit" class="btn_3">
-                                        Ingresar
-                                    </button>
-                                    <a class="lost_pass" href="#">Olvidaste tu contraseña?</a>
-                                </div>
-                            </form>
+                                <form class="row contact_form" >
+
+                                    <div class="col-md-12 form-group p_star">
+                                        <input type="text" class="form-control" id="name" value=""
+                                            placeholder="Correo">
+                                    </div>
+                                    <div class="col-md-12 form-group p_star">
+                                        <input type="password" class="form-control" id="password"  value=""
+                                            placeholder="Contraseña">
+                                    </div>
+
+
+                                    <div class="col-md-12 form-group">
+                                        <input type='button' onclick="entrar()" class="btn_3 button" value='Ingresar'/>
+
+
+                                    </div>
+                                </form>
                         </div>
                     </div>
                 </div>
@@ -204,13 +206,9 @@
 
     <!-- All JS Custom Plugins Link Here here -->
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-<<<<<<< Updated upstream
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
-    <script src="./assets/js/register.js"></script>
-=======
+
     <script src="login.js"></script>
->>>>>>> Stashed changes
+
 
     <!-- Jquery, Popper, Bootstrap -->
     <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
