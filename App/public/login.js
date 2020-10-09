@@ -15,6 +15,7 @@ db = firebase.firestore();
 
 function entrar(){
   //Get them
+  
   var pass =document.getElementById("password").value;
   var email =document.getElementById("name").value;
 
@@ -31,13 +32,14 @@ function entrar(){
   //If you want to get doc data
       var x = userDoc.data().Correo;
       var y = userDoc.data().Contraseña;
+      var session = userDoc.id;
       if(email == x){
         if(y==pass){
-          insession= true;
+          insession= "1";
           alert("Bienvenido");
           document.getElementById("password").value ="";
           document.getElementById("name").value ="";
-          location.href = "index.html";
+          location.href = "index.html" + '#' + session;
         }
       }})});
 

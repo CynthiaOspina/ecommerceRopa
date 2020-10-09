@@ -1,4 +1,5 @@
 var globalid=1;
+var text = window.location.hash.substring(1);
 var firebaseConfig = {
   apiKey: "AIzaSyCy3lw3o0NE1E4GYhqVcnuIxG0NxeqT6B8",
   authDomain: "ing-soft-2.firebaseapp.com",
@@ -56,7 +57,7 @@ var usersReference = db.collection("productos");
       var x5 ='<i class="far fa-star"></i><i class="far fa-star low-star"></i><i class="far fa-star low-star"></i><i class="far fa-star low-star"></i><i class="far fa-star low-star">';
     }
     if(globalid>0){
-    var x6 ='</i></div><h4><a href="single-product.html?variable='+globalid+'">';
+    var x6 ='</i></div><h4><a href="single-product.html?variable='+globalid+'#'+text+'">';
     globalid=globalid+1;
     console.log(globalid+"id");
     }
@@ -86,3 +87,41 @@ var usersReference = db.collection("productos");
  })
 
 });
+
+
+function checkusuario(){
+  var text = window.location.hash.substring(1);
+  if(text == ""){
+    console.log("chill");
+  }
+  else{
+    document.getElementById("nav1").href = 'index.html' + '#' + text;
+    document.getElementById("nav2").href = 'Catalogo.html' + '#' + text;
+    document.getElementById("perf").href = 'perfil.html' + '#' + text;
+    var ele = document.getElementById("signin");
+    ele.style.display = "none";
+    var ele2 = document.getElementById("perf");
+    ele2.style.display = "block";
+
+    var usersReference = db.collection("usuarios");
+    usersReference.get().then((querySnapshot) => {
+
+    //querySnapshot is "iteratable" itself
+    querySnapshot.forEach((userDoc) => {
+
+    //userDoc contains all metadata of Firestore object, such as reference and id
+
+    //If you want to get doc data
+        var x = userDoc.data().Nombre;
+        var session = userDoc.id;
+        if(session == text){
+          ele2.innerHTML=x;
+
+        }})});
+
+
+
+
+  }
+
+}

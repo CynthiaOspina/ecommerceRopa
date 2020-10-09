@@ -7,7 +7,6 @@
     <title>ABC</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <!-- CSS here -->
@@ -24,7 +23,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-   <body>
+   <body onload="checkusuario()">
      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
@@ -78,8 +77,8 @@
                                  <div class="main-menu f-left d-none d-lg-block">
                                      <nav>
                                          <ul id="navigation">
-                                             <li><a href="index.html">Home</a></li>
-                                             <li><a href="Catalogo.html">Catalogo</a></li>
+                                             <li><a id="nav1" href="index.html">Home</a></li>
+                                             <li><a id="nav2" href="Catalogo.html">Catalogo</a></li>
                                          </ul>
                                      </nav>
                                  </div>
@@ -97,7 +96,8 @@
                                              <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
                                          </div>
                                      </li>
-                                    <li class="d-none d-lg-block"> <a href="login.html" class="btn header-btn">Sign in</a></li>
+                                     <li class="d-none d-lg-block"> <a href="login.html" id="signin" class="btn header-btn">Sign In</a></li>
+                                     <li class="d-none d-lg-block"> <a href="perfil.html" id="perf" class="btn header-btn" style="display:none;"></a></li>
                                  </ul>
                              </div>
                              <!-- Mobile Menu -->

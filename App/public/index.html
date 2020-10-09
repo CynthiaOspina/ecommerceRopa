@@ -6,7 +6,7 @@
         <title>ABC</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
 		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 		<!-- CSS here -->
@@ -21,9 +21,12 @@
             <link rel="stylesheet" href="assets/css/slick.css">
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
+
    </head>
 
-   <body>
+   <body onload="checkusuario()">
+     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
 
     <!-- Preloader Start -->
     <div id="preloader-active">
@@ -57,8 +60,8 @@
                                  <div class="main-menu f-left d-none d-lg-block">
                                      <nav>
                                          <ul id="navigation">
-                                             <li><a href="index.html">Home</a></li>
-                                             <li><a href="Catalogo.html">Catalogo</a></li>
+                                             <li><a id="nav1" href="index.html">Home</a></li>
+                                             <li><a id="nav2" href="Catalogo.html">Catalogo</a></li>
 
                                          </ul>
                                      </nav>
@@ -77,7 +80,8 @@
                                              <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
                                          </div>
                                      </li>
-                                    <li class="d-none d-lg-block"> <a href="login.html" class="btn header-btn">Sign In</a></li>
+                                    <li class="d-none d-lg-block"> <a href="login.html" id="signin" class="btn header-btn">Sign In</a></li>
+                                    <li class="d-none d-lg-block"> <a href="perfil.html" id="perf" class="btn header-btn" style="display:none;"></a></li>
                                  </ul>
                              </div>
                              <!-- Mobile Menu -->
@@ -113,7 +117,7 @@
                                     <p data-animation="fadeInRight" data-delay=".8s">Mejor colección del 2020</p>
                                     <!-- Hero-btn -->
                                     <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                                        <a href="Catagori.html" class="btn hero-btn">Compra Ahora</a>
+                                        <a id="nav3" href="Catalogo.html" class="btn hero-btn">Compra Ahora</a>
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +146,7 @@
                                 <img src="assets/img/categori/cat1.jpg" alt="">
                                 <div class="category-caption">
                                     <h2>Mujeres</h2>
-                                    <span class="best"><a href="#">Nuevos Descuentos</a></span>
+                                    <span class="best"><a id="nav4" href="Catalogo.html">Nuevos Descuentos</a></span>
                                     <span class="collection">Nueva Colección</span>
                                 </div>
                             </div>
@@ -166,7 +170,7 @@
                                 <img src="assets/img/categori/cat3.jpg" alt="">
                                 <div class="category-caption">
                                     <h2>Hombres</h2>
-                                    <span class="best"><a href="#">Nuevos Descuentos</a></span>
+                                    <span class="best"><a id="nav5" href="Catalogo.html">Nuevos Descuentos</a></span>
                                     <span class="collection">Nueva Colección</span>
                                 </div>
                             </div>
@@ -179,34 +183,7 @@
 
 
 
-        <!-- Latest Offers Start -->
-        <div class="latest-wrapper lf-padding">
-            <div class="latest-area latest-height d-flex align-items-center" data-background="assets/img/collection/latest-offer.png">
-                <div class="container">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-xl-5 col-lg-5 col-md-6 offset-xl-1 offset-lg-1">
-                            <div class="latest-caption">
-                                <h2>Consigue nuestras <br>nuevas ofertas y noticias</h2>
-                                <p>Suscribete a nuestra boletin mensual</p>
-                            </div>
-                        </div>
-                         <div class="col-xl-5 col-lg-5 col-md-6 ">
-                            <div class="latest-subscribe">
-                                <form action="#">
-                                    <input type="email" placeholder="Tu correo aqui">
-                                    <button>Suscribirte</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- man Shape -->
-                <div class="man-shape">
-                    <img src="assets/img/collection/latest-man.png" alt="">
-                </div>
-            </div>
-        </div>
-        <!-- Latest Offers End -->
+
         <!-- Shop Method Start-->
         <div class="shop-method-area section-padding30">
             <div class="container">
@@ -328,6 +305,7 @@
 	<!-- JS here -->
 
 		<!-- All JS Custom Plugins Link Here here -->
+    <script src="index.js"></script>
         <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
 		<!-- Jquery, Popper, Bootstrap -->
 		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>

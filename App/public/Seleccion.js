@@ -28,7 +28,7 @@ var firebaseConfig = {
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
-    var db = firebase.firestore();
+    db = firebase.firestore();
 
     var usersReference = db.collection("productos");
     //Get them
@@ -48,9 +48,9 @@ var firebaseConfig = {
     var x = document.getElementById("imagenprodc");
     x.innerHTML = x.innerHTML.concat('<img src="',foto,'"  alt="" class="img-fluid" >',
         '<h3> <p> S/.',precio,'</p> </h3>');
-        console.log(x);  
+        console.log(x);
     var x1 = document.getElementById("textoproducto");
-    x1.innerHTML= nombre; 
+    x1.innerHTML= nombre;
     var x2 = document.getElementById("descripcionproducto");
     x2.innerHTML= descripcion;
     }
@@ -76,4 +76,45 @@ function agregarcarrito(){
         console.error("Error writing document: ", error);
     });
     window.open("cart.html","ventana1");
+}
+
+
+
+
+function checkusuario(){
+  var text = window.location.hash.substring(1);
+  if(text == ""){
+    console.log("chill");
+  }
+  else{
+    document.getElementById("nav1").href = 'index.html' + '#' + text;
+    document.getElementById("nav2").href = 'Catalogo.html' + '#' + text;
+    document.getElementById("perf").href = 'perfil.html' + '#' + text;
+
+    var ele = document.getElementById("signin");
+    ele.style.display = "none";
+    var ele2 = document.getElementById("perf");
+    ele2.style.display = "block";
+
+    var usersReference = db.collection("usuarios");
+    usersReference.get().then((querySnapshot) => {
+
+    //querySnapshot is "iteratable" itself
+    querySnapshot.forEach((userDoc) => {
+
+    //userDoc contains all metadata of Firestore object, such as reference and id
+
+    //If you want to get doc data
+        var x = userDoc.data().Nombre;
+        var session = userDoc.id;
+        if(session == text){
+          ele2.innerHTML=x;
+
+        }})});
+
+
+
+
+  }
+
 }
