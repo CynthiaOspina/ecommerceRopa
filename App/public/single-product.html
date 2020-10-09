@@ -52,7 +52,7 @@
                                      <nav>
                                          <ul id="navigation">
                                              <li><a href="index.html">Home</a></li>
-                                             <li><a href="Catagori.html">Catalogo</a></li>
+                                             <li><a href="Catalogo.html">Catalogo</a></li>
                                              <li><a href="product_list.html">Buscar</a></li>
                                              <li><a href="about.html">Nosotros</a></li>
                                              <li><a href="contact.html">Contacto</a></li>
@@ -117,7 +117,7 @@
                     <p>Cantidad</p>
                     <div class="product_count d-inline-block">
                         <span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
-                        <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
+                        <input id="cantidadproducto" class="product_count_item input-number" type="text" value="1" min="0" max="10">
                         <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>
                     </div>
 
@@ -139,12 +139,11 @@
 
                 </div>
               <div class="add_to_cart">
-                  <a href="cart.html" class="btn_3">Agrega a tu carro</a>
+                  <button class="btn_1" onclick="agregarcarrito()">Agrega a tu carro</button>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -278,4 +277,3 @@
 </body>
 
 </html>
-
