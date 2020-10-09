@@ -77,3 +77,4 @@ function agregarcarrito(){
     });
     window.open("cart.html","ventana1");
 }
+
