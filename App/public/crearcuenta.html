@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="zxx">
 
 <head>
@@ -7,7 +7,7 @@
     <title>ABC</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
+
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <!-- CSS here -->
@@ -109,31 +109,30 @@
                         <div class="login_part_form_iner">
                             <h3>Bienvenido ! <br>
                                 Entra tus datos</h3>
-                            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                            <form class="row contact_form" >
                                 <div class="col-md-12 form-group p_star">
-                                  <input type="text" class="form-control" id="nombre" name="nombre" value=""
+                                  <input type="text" class="form-control" id="nombre"  value=""
                                       placeholder="Nombre">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="name" name="name" value=""
+                                    <input type="text" class="form-control" id="name" value=""
                                         placeholder="Correo">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" id="password" name="password" value=""
+                                    <input type="password" class="form-control" id="password"  value=""
                                         placeholder="Contraseña">
                                 </div>
 
                                 <div class="col-md-12 form-group p_star">
                                   <br>
-                                    <input type="radio" id="tipo" name="tipo" value="">
+                                    <input type="radio" id="tipo1" name="tipo" value="">
                                     <label for="comprador">Comprador</label><br>
-                                    <input type="radio" id="tipo" name="tipo" value="">
+                                    <input type="radio" id="tipo2" name="tipo" value="">
                                     <label for="vendedor">Vendedor</label><br>
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <button type="submit" id="but" value="submit" class="btn_3">
-                                        Crear cuenta
-                                    </button>
+                                    <input type='button' onclick="crear()" class="btn_3 button" value='Crear Cuenta'/>
+
 
                                 </div>
                             </form>
@@ -143,6 +142,7 @@
             </div>
         </div>
     </section>
+  
     <!--================login_part end =================-->
 
     <footer>
