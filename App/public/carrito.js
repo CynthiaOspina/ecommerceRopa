@@ -44,4 +44,56 @@ usersReference.get().then((querySnapshot) => {
       x11.innerHTML= '<h5> S/.'+total+'</h5>';
     })
 });
+function vaciarcarrito(){
+  db.collection("Carritos").doc("producto1").delete().then(function() {
+    console.log("Document successfully deleted!");
+}).catch(function(error) {
+    console.error("Error removing document: ", error);
+});
+db.collection("Carritos").doc("producto2").delete().then(function() {
+  console.log("Document successfully deleted!");
+}).catch(function(error) {
+  console.error("Error removing document: ", error);
+});
+db.collection("Carritos").doc("producto3").delete().then(function() {
+  console.log("Document successfully deleted!");
+}).catch(function(error) {
+  console.error("Error removing document: ", error);
+});
+db.collection("Carritos").doc("producto4").delete().then(function() {
+  console.log("Document successfully deleted!");
+}).catch(function(error) {
+  console.error("Error removing document: ", error);
+});
+db.collection("Carritos").doc("producto5").delete().then(function() {
+  console.log("Document successfully deleted!");
+}).catch(function(error) {
+  console.error("Error removing document: ", error);
+});
+db.collection("Carritos").doc("producto6").delete().then(function() {
+  console.log("Document successfully deleted!");
+}).catch(function(error) {
+  console.error("Error removing document: ", error);
+});
+db.collection("Carritos").doc("producto7").delete().then(function() {
+  console.log("Document successfully deleted!");
+}).catch(function(error) {
+  console.error("Error removing document: ", error);
+});
+db.collection("Carritos").doc("producto8").delete().then(function() {
+  console.log("Document successfully deleted!");
+}).catch(function(error) {
+  console.error("Error removing document: ", error);
+});
+db.collection("Carritos").doc("producto9").delete().then(function() {
+  console.log("Document successfully deleted!");
+}).catch(function(error) {
+  console.error("Error removing document: ", error);
+});
+db.collection("Carritos").doc("producto10").delete().then(function() {
+  console.log("Document successfully deleted!");
+}).catch(function(error) {
+  console.error("Error removing document: ", error);
+});
+}
 
