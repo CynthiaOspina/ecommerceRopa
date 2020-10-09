@@ -30,7 +30,7 @@
 <body onload="checkusuario()">
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
-    <script src="Seleccion.js"></script>
+
     <header>
         <!-- Header Start -->
         <div class="header-area">
@@ -58,15 +58,9 @@
                              </div>
                              <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
                                  <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
-
-                                     <li class=" d-none d-xl-block">
-                                         <div class="favorit-items">
-                                             <i class="far fa-heart"></i>
-                                         </div>
-                                     </li>
                                      <li>
                                          <div class="shopping-card">
-                                             <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                             <a id="shopping" onclick="checkses()" href=""><i class="fas fa-shopping-cart"></i></a>
                                          </div>
                                      </li>
                                      <li class="d-none d-lg-block"> <a href="login.html" id="signin" class="btn header-btn">Sign In</a></li>
@@ -117,11 +111,11 @@
                         <p>Talla</p>
 
                           <div class="product_count d-inline-block">
-        							<div class="default-select" id="default-select">
-        										<select>
-        											<option value=" 1">Small</option>
+        							<div class="default-select">
+        										<select id="sizes">
+        											<option value=" 1" selected>Small</option>
         								      <option value="1">Medium</option>
-        								      <option value="1">Large</option>
+        								      <option value="1" >Large</option>
         								      <option value="1">X-Large</option>
 
         								    </select>
@@ -131,7 +125,7 @@
 
                 </div>
               <div class="add_to_cart">
-                  <a href="cart.html" class="btn_3">Agrega a tu carro</a>
+                  <input type='button' onclick="agregarcarrito()" class="btn_3" value='Agregar al carrito'/>
               </div>
             </div>
           </div>
@@ -226,6 +220,7 @@
 <!-- JS here -->
         <!-- All JS Custom Plugins Link Here here -->
         <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="Seleccion.js"></script>
 
         <!-- Jquery, Popper, Bootstrap -->
         <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>

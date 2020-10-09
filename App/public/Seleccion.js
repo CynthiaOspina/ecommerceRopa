@@ -40,6 +40,7 @@ var firebaseConfig = {
     if(globaid==params['variable']){
         console.log("intento correcto");
     precio = userDoc.data().Precio;
+    idprod= userDoc.id;
     console.log(precio);
     var descripcion = userDoc.data().Descripcion;
     foto = userDoc.data().Foto;
@@ -60,22 +61,33 @@ var firebaseConfig = {
 });
 
 function agregarcarrito(){
-    var cant = "";
-    cant = document.getElementById("cantidadproducto").value;
-    console.log(cant)
-    db.collection("Carritos").doc("producto"+params['variable']).set({
-        name: nombre,
-        photo: foto,
-        price: precio,
-        cantidad: cant,
-    })
-    .then(function() {
-        console.log("Document successfully written!");
-    })
-    .catch(function(error) {
-        console.error("Error writing document: ", error);
-    });
-    window.open("cart.html","ventana1");
+    var text = window.location.hash.substring(1);
+    var ddl = document.getElementById("sizes");
+    var selectedValue = ddl.options[ddl.selectedIndex].innerHTML;
+    console.log(selectedValue);
+    console.log(text);
+    console.log(ddl);
+    var usersReference = db.collection("usuarios");
+    usersReference.get().then((querySnapshot) => {
+
+    //querySnapshot is "iteratable" itself
+    querySnapshot.forEach((userDoc) => {
+
+    //userDoc contains all metadata of Firestore object, such as reference and id
+
+    //If you want to get doc data
+        var session = userDoc.id;
+        if(session == text){
+          var newcar = db.collection("carritos").doc();
+
+          newcar.set({
+            Producto: idprod,
+            Cliente: session,
+            Talla: selectedValue
+          });
+          alert("Producto agregado");
+        }})});
+
 }
 
 
@@ -117,4 +129,14 @@ function checkusuario(){
 
   }
 
-}
+};
+
+function checkses(){
+  var text = window.location.hash.substring(1);
+  if(text == ""){
+    alert("Inicia sesion primero");
+  }
+  else{
+    document.getElementById("shopping").href = 'cart.html' + '#' + text;
+  }
+};

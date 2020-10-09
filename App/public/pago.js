@@ -14,10 +14,10 @@ firebase.analytics();
 db = firebase.firestore();
 
 
-function checkusuario(){
+function checkordenes(){
   var text = window.location.hash.substring(1);
   if(text == ""){
-    console.log("chill");
+    console.log("sin usuario");
   }
   else{
     document.getElementById("nav1").href = 'index.html' + '#' + text;
@@ -29,24 +29,28 @@ function checkusuario(){
     var ele2 = document.getElementById("perf");
     ele2.style.display = "block";
 
-    var usersReference = db.collection("usuarios");
+    var usersReference = db.collection("ordenes");
     usersReference.get().then((querySnapshot) => {
 
     //querySnapshot is "iteratable" itself
     querySnapshot.forEach((userDoc) => {
 
     //userDoc contains all metadata of Firestore object, such as reference and id
+      var orden = userDoc.data().Cliente;
+      if(orden == text){
+        var x = userDoc.data().Pedido;
+        var y = userDoc.data().Cliente;
+        var w = userDoc.data().ClienteID;
+        var q = userDoc.data().Direccion;
+        var v = userDoc.data().DeliveryRapido;
+        var d = userDoc.data().Distrito;
+        document.getElementById("info").innerHTML = document.getElementById("info").innerHTML.concat(x,"<br>",y,"<br>",w,"<br>",q,"<br>",v,"<br>",d);
 
-    //If you want to get doc data
-        var x = userDoc.data().Nombre;
-        var y = userDoc.data().Correo;
-        var w = userDoc.data().Tipo;
-        var session = userDoc.id;
-        if(session == text){
-          ele2.innerHTML=x;
-          document.getElementById("info").innerHTML = document.getElementById("info").innerHTML.concat(x,"<br>",y,"<br>",w);
 
-        }})});
+
+      }
+
+        })});
   }
 };
 

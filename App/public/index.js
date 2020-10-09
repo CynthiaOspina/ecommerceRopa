@@ -47,10 +47,15 @@ function checkusuario(){
           ele2.innerHTML=x;
 
         }})});
-
-
-
-
   }
-
 }
+
+function checkses(){
+  var text = window.location.hash.substring(1);
+  if(text == ""){
+    alert("Inicia sesion primero");
+  }
+  else{
+    document.getElementById("shopping").href = 'cart.html' + '#' + text;
+  }
+};

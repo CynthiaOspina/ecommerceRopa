@@ -42,6 +42,16 @@ function crear(){
   document.getElementById("name").value ="";
   document.getElementById('tipo1').checked = false;
   document.getElementById('tipo2').checked = false;
+  location.href = "login.html" + '#' + session;
 
+};
 
+function checkses(){
+  var text = window.location.hash.substring(1);
+  if(text == ""){
+    alert("Inicia sesion primero");
+  }
+  else{
+    document.getElementById("shopping").href = 'cart.html' + '#' + text;
+  }
 };

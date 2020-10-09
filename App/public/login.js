@@ -15,7 +15,7 @@ db = firebase.firestore();
 
 function entrar(){
   //Get them
-  
+
   var pass =document.getElementById("password").value;
   var email =document.getElementById("name").value;
 
@@ -42,8 +42,14 @@ function entrar(){
           location.href = "index.html" + '#' + session;
         }
       }})});
+};
 
-
-
-
+function checkses(){
+  var text = window.location.hash.substring(1);
+  if(text == ""){
+    alert("Inicia sesion primero");
+  }
+  else{
+    document.getElementById("shopping").href = 'cart.html' + '#' + text;
+  }
 };

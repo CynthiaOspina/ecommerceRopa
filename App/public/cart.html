@@ -24,10 +24,10 @@
       <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body onload="checkusuario()">
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
-    <script src="carrito.js"></script>
+
   <header>
     <!-- Header Start -->
     <div class="header-area">
@@ -47,26 +47,21 @@
                              <div class="main-menu f-left d-none d-lg-block">
                                  <nav>
                                      <ul id="navigation">
-                                         <li><a href="index.html">Home</a></li>
-                                         <li><a href="Catagori.html">Catalogo</a></li>
+                                         <li><a id="nav1" href="index.html">Home</a></li>
+                                         <li><a id="nav2" href="Catalogo.html">Catalogo</a></li>
                                      </ul>
                                  </nav>
                              </div>
                          </div>
                          <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
                              <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
-
-                                 <li class=" d-none d-xl-block">
-                                     <div class="favorit-items">
-                                         <i class="far fa-heart"></i>
-                                     </div>
-                                 </li>
                                  <li>
                                      <div class="shopping-card">
-                                         <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                         <a id="shopping" onclick="checkses()" href=""><i class="fas fa-shopping-cart"></i></a>
                                      </div>
                                  </li>
-                                <li class="d-none d-lg-block"> <a href="login.html" class="btn header-btn">Sign in</a></li>
+                                 <li class="d-none d-lg-block"> <a href="login.html" id="signin" class="btn header-btn">Sign In</a></li>
+                                 <li class="d-none d-lg-block"> <a href="perfil.html" id="perf" class="btn header-btn" style="display:none;"></a></li>
                              </ul>
                          </div>
                          <!-- Mobile Menu -->
@@ -102,7 +97,6 @@
   <section class="cart_area section_padding">
     <div class="container">
       <div class="cart_inner">
-        <div class="table-responsive">
           <table class="table">
             <thead>
               <tr>
@@ -113,18 +107,7 @@
               </tr>
             </thead>
             <tbody id="cajacarrito">
-              <tr class="bottom_button">
-                <td>
-                  <a class="btn_1" href="#">Update Cart</a>
-                </td>
-                <td></td>
-                <td></td>
-                <td>
-                  <div class="cupon_text float-right">
-                    <a class="btn_1" href="#">Close Coupon</a>
-                  </div>
-                </td>
-              </tr>
+
               <tr>
                 <td></td>
                 <td></td>
@@ -139,61 +122,43 @@
                 <td></td>
                 <td></td>
                 <td>
-                  <h5>Shipping</h5>
+
                 </td>
                 <td>
                   <div class="shipping_box">
-                    <ul class="list">
-                      <li>
-                        Flat Rate: $5.00
-                        <input type="radio" aria-label="Radio button for following text input">
-                      </li>
-                      <li>
-                        Free Shipping
-                        <input type="radio" aria-label="Radio button for following text input">
-                      </li>
-                      <li>
-                        Flat Rate: $10.00
-                        <input type="radio" aria-label="Radio button for following text input">
-                      </li>
-                      <li class="active">
-                        Local Delivery: $2.00
-                        <input type="radio" aria-label="Radio button for following text input">
-                      </li>
-                    </ul>
-                    <h6>
-                      Calculate Shipping
-                      <i class="fa fa-caret-down" aria-hidden="true"></i>
-                    </h6>
-                    <select class="shipping_select">
-                      <option value="1">Bangladesh</option>
-                      <option value="2">India</option>
-                      <option value="4">Pakistan</option>
+                  <input type="radio" id="tipo1" name="tipo" value="">
+                  <label for="comprador">Free Shipping</label><br>
+                  <input type="radio" id="tipo2" name="tipo" value="">
+                  <label for="vendedor">Delivery rapido: S/.15.00</label><br>
+
+                    <select id="distrito" class="shipping_select section_bg">
+                      <option value="1">Elige un distrito</option>
+                      <option value="2">Santiago de Surco</option>
+                      <option value="3">Miraflores</option>
+                      <option value="4">Barranco</option>
+                      <option value="5">La Molina</option>
+                      <option value="6">San Isidro</option>
+                      <option value="7">San Borga</option>
+                      <option value="8">Chorillos</option>
                     </select>
-                    <select class="shipping_select section_bg">
-                      <option value="1">Select a State</option>
-                      <option value="2">Select a State</option>
-                      <option value="4">Select a State</option>
-                    </select>
-                    <input class="post_code" type="text" placeholder="Postcode/Zipcode" />
-                    <a class="btn_1" href="#">Update Details</a>
+                    <input id="direcc" class="post_code" type="text" value="" placeholder="Direccion" />
+
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
           <div class="checkout_btn_inner float-right">
-            <a class="btn_1" href="Catagori.html">Continue Shopping</a>
-            <a class="btn_1 checkout_btn_1" href="#">Proceed to checkout</a>
+            <a class="btn_1" id="nav3" href="Catalogo.html">Continue Shopping</a>
+            <input type='button' onclick="crearorden()" class="btn_3 button" value='Ir a Checkout'/>
           </div>
-        </div>
       </div>
   </section>
   <!--================End Cart Area =================-->
 
 <footer>
     <!-- Footer Start-->
-    <div class="footer-area footer-padding2">
+    <div class="footer-area footer-padding">
         <div class="container">
             <div class="row d-flex justify-content-between">
                 <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
@@ -205,48 +170,24 @@
                          </div>
                          <div class="footer-tittle">
                              <div class="footer-pera">
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                                 <p></p>
                             </div>
                          </div>
                      </div>
                    </div>
                 </div>
-                <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
-                    <div class="single-footer-caption mb-50">
-                        <div class="footer-tittle">
-                            <h4>Quick Links</h4>
-                            <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#"> Offers & Discounts</a></li>
-                                <li><a href="#"> Get Coupon</a></li>
-                                <li><a href="#">  Contact Us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
-                    <div class="single-footer-caption mb-50">
-                        <div class="footer-tittle">
-                            <h4>New Products</h4>
-                            <ul>
-                                <li><a href="#">Woman Cloth</a></li>
-                                <li><a href="#">Fashion Accessories</a></li>
-                                <li><a href="#"> Man Accessories</a></li>
-                                <li><a href="#"> Rubber made Toys</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
+
                 <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
                     <div class="single-footer-caption mb-50">
                         <div class="footer-tittle">
-                            <h4>Support</h4>
+                            <h4>Soporte</h4>
                             <ul>
-                             <li><a href="#">Frequently Asked Questions</a></li>
-                             <li><a href="#">Terms & Conditions</a></li>
-                             <li><a href="#">Privacy Policy</a></li>
-                             <li><a href="#">Privacy Policy</a></li>
-                             <li><a href="#">Report a Payment Issue</a></li>
+                             <li><a href="#">Preguntas Frecuente</a></li>
+                             <li><a href="#">Terminos y Condiciones</a></li>
+                             <li><a href="#">Politica de Privacidad</a></li>
+                             <li><a href="#">Reportar un Problema</a></li>
+
                          </ul>
                         </div>
                     </div>
@@ -257,8 +198,8 @@
              <div class="col-xl-7 col-lg-7 col-md-7">
                  <div class="footer-copy-right">
                      <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>                   </div>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>                   </div>
              </div>
               <div class="col-xl-5 col-lg-5 col-md-5">
                  <div class="footer-copy-right f-right">
@@ -266,15 +207,12 @@
                      <div class="footer-social">
                          <a href="#"><i class="fab fa-twitter"></i></a>
                          <a href="#"><i class="fab fa-facebook-f"></i></a>
-                         <a href="#"><i class="fab fa-behance"></i></a>
-                         <a href="#"><i class="fas fa-globe"></i></a>
                      </div>
                  </div>
              </div>
          </div>
         </div>
     </div>
-
     <!-- Footer End-->
 </footer>
 
@@ -282,7 +220,7 @@
 
     <!-- All JS Custom Plugins Link Here here -->
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-
+    <script src="carrito.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
     <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="./assets/js/popper.min.js"></script>
